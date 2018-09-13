@@ -114,7 +114,7 @@ class iTunesInfoViewController: UIViewController {
             
             return CMTimeRangeGetEnd(range.timeRangeValue)
         }
-        return kCMTimeZero
+        return CMTime.zero
         
     }
     
@@ -188,9 +188,9 @@ class iTunesInfoViewController: UIViewController {
             stackView.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(stackView)
             
-            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-70-[stackView]-80-|", options: NSLayoutFormatOptions.alignAllLeading, metrics: nil, views: ["stackView":stackView]))
+            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-70-[stackView]-80-|", options: NSLayoutConstraint.FormatOptions.alignAllLeading, metrics: nil, views: ["stackView":stackView]))
             
-            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[stackView]-10-|", options: NSLayoutFormatOptions.alignAllLeading, metrics: nil, views: ["stackView":stackView]))
+            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[stackView]-10-|", options: NSLayoutConstraint.FormatOptions.alignAllLeading, metrics: nil, views: ["stackView":stackView]))
             
             
             stackView.axis = .vertical
@@ -245,7 +245,7 @@ class iTunesInfoViewController: UIViewController {
                     
                     self.view.layer.addSublayer(playerLayer)
                     
-                    self.playButton = UIButton(type: UIButtonType.system) as UIButton
+                    self.playButton = UIButton(type: UIButton.ButtonType.system) as UIButton
                     
                     playButton?.backgroundColor = UIColor.lightGray
                     playButton?.setTitle("Play", for: .normal)
@@ -281,7 +281,7 @@ class iTunesInfoViewController: UIViewController {
                 
                 // get artwork from Apple and Show Spinner to User to show Activity
                 
-                self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+                self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
                 
                 
                 var center = self.view.center
@@ -322,7 +322,7 @@ class iTunesInfoViewController: UIViewController {
                                 
                                 let image = UIImage(data: imageData as Data)
                                 imageView.image = image
-                                imageView.contentMode = UIViewContentMode.scaleAspectFit
+                                imageView.contentMode = UIView.ContentMode.scaleAspectFit
                                 
                                 stackView.addArrangedSubview(imageView)
                                 
@@ -490,7 +490,7 @@ class TabOneViewController: UIViewController, UICollectionViewDataSource, UIColl
         // Handle the rest of setup here : UIRefreshControl & Core Data Fetch Results Controller
         
         self.theCollectionView?.refreshControl = UIRefreshControl()
-        self.theCollectionView?.refreshControl?.addTarget(self, action: #selector(handleCollectionViewRefresh(_:)), for: UIControlEvents.valueChanged)
+        self.theCollectionView?.refreshControl?.addTarget(self, action: #selector(handleCollectionViewRefresh(_:)), for: UIControl.Event.valueChanged)
         
         self.theCollectionView?.refreshControl?.tintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         
@@ -657,7 +657,7 @@ class TabOneViewController: UIViewController, UICollectionViewDataSource, UIColl
                 
                 let image = UIImage(data: imageExists)
                 imageView.image = image
-                imageView.contentMode = UIViewContentMode.scaleAspectFit
+                imageView.contentMode = UIView.ContentMode.scaleAspectFit
                 cell.addSubview(imageView)
                 
                 
@@ -716,7 +716,7 @@ class TabOneViewController: UIViewController, UICollectionViewDataSource, UIColl
                             
                             let image = UIImage(data: imageData as Data)
                             imageView.image = image
-                            imageView.contentMode = UIViewContentMode.scaleAspectFit
+                            imageView.contentMode = UIView.ContentMode.scaleAspectFit
                             cell.addSubview(imageView)
                             
                             
@@ -970,7 +970,7 @@ class TabThreeViewController : UITableViewController {
         super.viewDidLoad()
         
         self.tableView?.refreshControl = UIRefreshControl()
-        self.tableView?.refreshControl?.addTarget(self, action: #selector(handleTableRefresh(_:)), for: UIControlEvents.valueChanged)
+        self.tableView?.refreshControl?.addTarget(self, action: #selector(handleTableRefresh(_:)), for: UIControl.Event.valueChanged)
         
         self.tableView?.refreshControl?.tintColor = UIColor.blue
         
@@ -1070,7 +1070,7 @@ class TabThreeViewController : UITableViewController {
         
         //let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "test")
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "test")
         
         print("Row is : \(indexPath.row)")
         
